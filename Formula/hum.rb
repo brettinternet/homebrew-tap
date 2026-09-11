@@ -1,7 +1,6 @@
 class Hum < Formula
   desc "Local development process supervisor"
   homepage "https://github.com/brettinternet/hum"
-  version "0.9.0"
   license "MIT"
 
   on_macos do
