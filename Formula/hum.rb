@@ -5,17 +5,18 @@ class Hum < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/brettinternet/hum/releases/download/v0.9.1/hum-0.9.1-macos-arm64.tar.gz"
-      sha256 "1d6153fcf25671cb3ade8471bce1ec7aadb68822bbcb4d57ab9bfbdae90aad0a"
+      url "https://github.com/brettinternet/hum/releases/download/v0.10.0/hum-0.10.0-macos-arm64.tar.gz"
+      sha256 "5db5534c61e845f6825b9d703997fb3c2be3abf7c46a0db291564fbd91ad9841"
     end
     on_intel do
-      url "https://github.com/brettinternet/hum/releases/download/v0.9.1/hum-0.9.1-macos-x64.tar.gz"
-      sha256 "5beb4cebe91dfa840eba938a61eeac437b8b3ee8bbe679090e1121cfeaadcb39"
+      url "https://github.com/brettinternet/hum/releases/download/v0.10.0/hum-0.10.0-macos-x64.tar.gz"
+      sha256 "084d9ed37639c885362f55b72192e170732d1c703150de190c0bbe93280e5097"
     end
   end
 
   def install
     bin.install "hum"
+    man1.install "hum.1"
   end
 
   test do
