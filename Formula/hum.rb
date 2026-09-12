@@ -5,12 +5,12 @@ class Hum < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/brettinternet/hum/releases/download/v0.12.0/hum-0.12.0-macos-arm64.tar.gz"
-      sha256 "d3eee40db4a68a153034958c03062beff0241e2afa8bed1f3a74e60462fa1165"
+      url "https://github.com/brettinternet/hum/releases/download/v0.12.1/hum-0.12.1-macos-arm64.tar.gz"
+      sha256 "440fdcce5a2ff917ad03514dc37be96b8a7646d90e97f289a3e58d55d6fa1cea"
     end
     on_intel do
-      url "https://github.com/brettinternet/hum/releases/download/v0.12.0/hum-0.12.0-macos-x64.tar.gz"
-      sha256 "af181e8fda0c763cded41aefa9a0ec3a210b6ebfd228563b56282b9aa49c7d35"
+      url "https://github.com/brettinternet/hum/releases/download/v0.12.1/hum-0.12.1-macos-x64.tar.gz"
+      sha256 "4d7c9f8efab4e5895a2a7b58e7fb08674771a2a51fa915e6f51d5ceee0f7a443"
     end
   end
 
