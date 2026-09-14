@@ -1,15 +1,23 @@
 # Homebrew tap
 
-Install [Hum](https://github.com/brettinternet/hum), a local development process supervisor:
+Install a formula:
 
 ```sh
 brew trust --formula brettinternet/tap/hum
 brew install brettinternet/tap/hum
-hum --version
+
+brew trust --formula brettinternet/tap/worklease
+brew install brettinternet/tap/worklease
 ```
 
-Update Hum:
+Available formulae:
+
+- [Hum](https://github.com/brettinternet/hum) — local development process supervisor
+- [Worklease](https://github.com/brettinternet/worklease) — task and resource lease coordination for local workers
+
+Update installed formulae:
 
 ```sh
-brew update && brew upgrade hum
+brew update
+brew upgrade
 ```

@@ -1,13 +1,24 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-tap_name=${1:?usage: check-homebrew-tap.sh owner/tap formula}
-formula=${2:?usage: check-homebrew-tap.sh owner/tap formula}
-
-if [[ ! "$tap_name" =~ ^[A-Za-z0-9-]+/[A-Za-z0-9-]+$ ]] || [[ ! "$formula" =~ ^[A-Za-z0-9@+._-]+$ ]]; then
-  echo "invalid tap or formula name" >&2
+tap_name=${1:?usage: check-homebrew-tap.sh owner/tap formula...}
+shift
+if (($# == 0)); then
+  echo "usage: check-homebrew-tap.sh owner/tap formula..." >&2
   exit 2
 fi
+formulas=("$@")
+
+if [[ ! "$tap_name" =~ ^[A-Za-z0-9-]+/[A-Za-z0-9-]+$ ]]; then
+  echo "invalid tap name" >&2
+  exit 2
+fi
+for formula in "${formulas[@]}"; do
+  if [[ ! "$formula" =~ ^[A-Za-z0-9@+._-]+$ ]]; then
+    echo "invalid formula name: $formula" >&2
+    exit 2
+  fi
+done
 
 brew_repository=$(brew --repository)
 tap_owner=${tap_name%%/*}
@@ -32,5 +43,7 @@ ln -s "$target_path" "$tap_path"
 
 brew style "$tap_name"
 brew audit --strict --online --tap="$tap_name"
-brew install --formula "$tap_name/$formula"
-brew test "$tap_name/$formula"
+for formula in "${formulas[@]}"; do
+  brew install --formula "$tap_name/$formula"
+  brew test "$tap_name/$formula"
+done
