@@ -1,0 +1,50 @@
+name: Update formulae
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-formulae
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Update formulae from latest releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          versions=""
+          for formula in hum worklease; do
+            tag=$(gh release view --repo "brettinternet/$formula" --json tagName --jq .tagName)
+            version=${tag#v}
+            release_dir="$RUNNER_TEMP/$formula-release"
+            mkdir -p "$release_dir"
+            gh release download "$tag" \
+              --repo "brettinternet/$formula" \
+              --pattern checksums.txt \
+              --dir "$release_dir"
+            ruby .github/scripts/update-formula.rb "$formula" "$version" "$release_dir/checksums.txt"
+            versions="${versions:+$versions, }$formula v$version"
+          done
+          echo "versions=$versions" >> "$GITHUB_ENV"
+      - name: Commit updates
+        run: |
+          if git diff --quiet -- Formula; then
+            echo "Formulae already target the latest releases"
+            exit 0
+          fi
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add Formula
+          git commit -m "update formulae: $versions"
+          git push
