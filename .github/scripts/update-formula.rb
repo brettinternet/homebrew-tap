@@ -19,6 +19,15 @@ formulae = {
 }
 configuration = formulae.fetch(formula_name) { abort "unsupported formula: #{formula_name}" }
 
+def asset_name(formula_name, version_prefix, version, platform)
+  "#{formula_name}-#{version_prefix}#{version}-#{platform}.tar.gz"
+end
+
+def asset_url_pattern(repository, formula_name, version_prefix, platform)
+  asset_stem = "#{formula_name}-#{version_prefix}"
+  %r{(url "https://github\.com/brettinternet/#{repository}/releases/download/)v[^/]+/#{Regexp.escape(asset_stem)}[^/]+-#{Regexp.escape(platform)}\.tar\.gz"\n(\s+)sha256 "[0-9a-f]{64}"}
+end
+
 checksums = {}
 File.readlines(checksums_path, chomp: true).each do |line|
   fields = line.split
@@ -32,12 +41,11 @@ end
 
 formula_path = File.expand_path("../../Formula/#{formula_name}.rb", __dir__)
 formula = File.read(formula_path)
-asset_stem = "#{formula_name}-#{configuration[:asset_version_prefix]}"
 
 configuration[:platforms].each do |platform|
-  asset = "#{asset_stem}#{version}-#{platform}.tar.gz"
+  asset = asset_name(formula_name, configuration[:asset_version_prefix], version, platform)
   checksum = checksums.fetch(asset) { abort "missing checksum for #{asset}" }
-  pattern = %r{(url "https://github\.com/brettinternet/#{configuration[:repository]}/releases/download/)v[^/]+/#{Regexp.escape(asset_stem)}[^/]+-#{Regexp.escape(platform)}\.tar\.gz"\n(\s+)sha256 "[0-9a-f]{64}"}
+  pattern = asset_url_pattern(configuration[:repository], formula_name, configuration[:asset_version_prefix], platform)
   replacement = "\\1v#{version}/#{asset}\"\n\\2sha256 \"#{checksum}\""
   abort "could not update #{formula_name} #{platform}" unless formula.match?(pattern)
 
