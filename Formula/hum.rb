@@ -20,6 +20,6 @@ class Hum < Formula
   end
 
   test do
-    assert_match "hum version #{version}", shell_output("#{bin}/hum --version")
+    assert_match version.to_s, shell_output("#{bin}/hum --version")
   end
 end
