@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 formula_name, version, checksums_path = ARGV
-abort "usage: update-formula.rb FORMULA VERSION CHECKSUMS" unless formula_name && version && checksums_path
+abort "usage: update-formula.rb FORMULA VERSION CHECKSUMS" unless ARGV.length == 3
 abort "invalid version: #{version}" unless version.match?(/\A\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?\z/)
 
 formulae = {

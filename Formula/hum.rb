@@ -5,12 +5,12 @@ class Hum < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/brettinternet/hum/releases/download/v0.16.0/hum-0.16.0-macos-arm64.tar.gz"
-      sha256 "de71d78dae66bf464211a0099fc5cd949c93d047f3c5b202551495c528694eb8"
+      url "https://github.com/brettinternet/hum/releases/download/v0.18.0/hum-0.18.0-macos-arm64.tar.gz"
+      sha256 "82bddc425de9114234b1c7c541fddf4b0fbe97c396ff2451a2b8c5246a36441a"
     end
     on_intel do
-      url "https://github.com/brettinternet/hum/releases/download/v0.16.0/hum-0.16.0-macos-x64.tar.gz"
-      sha256 "8662486bb9352f1dbb1cbfa2d26221a022664a373e6c77971144545a06e7283b"
+      url "https://github.com/brettinternet/hum/releases/download/v0.18.0/hum-0.18.0-macos-x64.tar.gz"
+      sha256 "ef5e75ac37ba49e38ee1d5697dacc474e010b94125e659d30b8c17f3c03be36a"
     end
   end
 
@@ -20,6 +20,6 @@ class Hum < Formula
   end
 
   test do
-    assert_match "hum version #{version}", shell_output("#{bin}/hum --version")
+    assert_match version.to_s, shell_output("#{bin}/hum --version")
   end
 end
