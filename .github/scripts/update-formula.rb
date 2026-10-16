@@ -11,6 +11,11 @@ formulae = {
     asset_version_prefix: "",
     platforms: %w[macos-arm64 macos-x64],
   },
+  "tell" => {
+    repository: "tell",
+    asset_version_prefix: "v",
+    platforms: %w[macos-arm64 macos-x64 linux-arm64 linux-x64],
+  },
   "worklease" => {
     repository: "worklease",
     asset_version_prefix: "v",

@@ -24,7 +24,7 @@ jobs:
         run: |
           set -eu
           versions=""
-          for formula in hum worklease; do
+          for formula in hum worklease tell; do
             tag=$(gh release view --repo "brettinternet/$formula" --json tagName --jq .tagName)
             version=${tag#v}
             release_dir="$RUNNER_TEMP/$formula-release"
