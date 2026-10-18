@@ -5,23 +5,23 @@ class Tell < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/brettinternet/tell/releases/download/v0.3.0/tell-v0.3.0-macos-arm64.tar.gz"
-      sha256 "72a2ccedb68c4bf8273804f200512b8c59775d3eee26fc53f6013825f4ce7f1b"
+      url "https://github.com/brettinternet/tell/releases/download/v0.4.0/tell-v0.4.0-macos-arm64.tar.gz"
+      sha256 "837ba57c971ebaf4714f3fe30d53829cc89eb493d1a1121a43f487341dc15a29"
     end
     on_intel do
-      url "https://github.com/brettinternet/tell/releases/download/v0.3.0/tell-v0.3.0-macos-x64.tar.gz"
-      sha256 "77f7112f7a901532e544f3df5671474d2afd8f516caebd0638ac35d45e1970ed"
+      url "https://github.com/brettinternet/tell/releases/download/v0.4.0/tell-v0.4.0-macos-x64.tar.gz"
+      sha256 "76f06a2f8de658560995cb17a1debc81d44f847c920d38e754f65d0cde668afa"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/brettinternet/tell/releases/download/v0.3.0/tell-v0.3.0-linux-arm64.tar.gz"
-      sha256 "b4d598dc62cf966f33c72d86e27207ec720ae0a37db3e4d0ac45663283f2bf59"
+      url "https://github.com/brettinternet/tell/releases/download/v0.4.0/tell-v0.4.0-linux-arm64.tar.gz"
+      sha256 "1650911bca73a503f6ab79b2f5a4a75b9a3e1965873168df019541262bc48d00"
     end
     on_intel do
-      url "https://github.com/brettinternet/tell/releases/download/v0.3.0/tell-v0.3.0-linux-x64.tar.gz"
-      sha256 "af4c7627c4e0df93803f5b7a0d7a78affd24397116eb6cca720df639bd8c9823"
+      url "https://github.com/brettinternet/tell/releases/download/v0.4.0/tell-v0.4.0-linux-x64.tar.gz"
+      sha256 "1c636afde54ec337e5a08779127cfa8b921cdcf5f6879d4eed5d5cfe96dd24df"
     end
   end
 
