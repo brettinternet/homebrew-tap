@@ -5,23 +5,23 @@ class Worklease < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/brettinternet/worklease/releases/download/v1.9.3/worklease-v1.9.3-macos-arm64.tar.gz"
-      sha256 "37aac81a94d7b2c6c72a9e0265776cb65af2155deacdc6fb058c86db99a7c85b"
+      url "https://github.com/brettinternet/worklease/releases/download/v1.10.0/worklease-v1.10.0-macos-arm64.tar.gz"
+      sha256 "e15977cd4ce1ce20f5f8c9fbe855ed254fbae220dd10df5e1418a505bd9d2813"
     end
     on_intel do
-      url "https://github.com/brettinternet/worklease/releases/download/v1.9.3/worklease-v1.9.3-macos-x64.tar.gz"
-      sha256 "41432d942b3cf6f0b1522c0695e521b05fa202d5d197da795d49164dad36da1b"
+      url "https://github.com/brettinternet/worklease/releases/download/v1.10.0/worklease-v1.10.0-macos-x64.tar.gz"
+      sha256 "7acca88c3fffda828e31b9fca3d7f4c759ccc392176a83829bc3bcc92bae1145"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/brettinternet/worklease/releases/download/v1.9.3/worklease-v1.9.3-linux-arm64.tar.gz"
-      sha256 "262962160cb24fea54855a9096a5bdd3c0fa6b66437057e2e51cdaab462a2928"
+      url "https://github.com/brettinternet/worklease/releases/download/v1.10.0/worklease-v1.10.0-linux-arm64.tar.gz"
+      sha256 "b4d6714835f23b4720417f08c29f656e4f113ad6cba5833052b3ca5f5c3fb7f0"
     end
     on_intel do
-      url "https://github.com/brettinternet/worklease/releases/download/v1.9.3/worklease-v1.9.3-linux-x64.tar.gz"
-      sha256 "830d38bfc1354f0008e29619e683ee5105e23e791184a22e67b059c8825d3ee8"
+      url "https://github.com/brettinternet/worklease/releases/download/v1.10.0/worklease-v1.10.0-linux-x64.tar.gz"
+      sha256 "db181632836cb62d0895d68edd826bfa5be4b1fe777726b4a6f45e6d811b5fb3"
     end
   end
 
