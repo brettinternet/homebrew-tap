@@ -14,6 +14,17 @@ class Hum < Formula
     end
   end
 
+  on_linux do
+    on_arm do
+      url "https://github.com/brettinternet/hum/releases/download/v0.18.3/hum-0.18.3-linux-arm64.tar.gz"
+      sha256 "d9665f533d42b5650f184e3e0a7c8033acd2abbff8e3edaa79b6f09fdc48626c"
+    end
+    on_intel do
+      url "https://github.com/brettinternet/hum/releases/download/v0.18.3/hum-0.18.3-linux-x64.tar.gz"
+      sha256 "ebc8d6ac815bea0e775078d162f74343e2f49e75805649d80ff39b43fe9ea77e"
+    end
+  end
+
   def install
     bin.install "hum"
     man1.install "hum.1"

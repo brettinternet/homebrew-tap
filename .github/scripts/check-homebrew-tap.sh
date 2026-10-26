@@ -31,7 +31,11 @@ if [[ -e "$tap_path" || -L "$tap_path" ]]; then
   exit 1
 fi
 
+added_trust=false
 cleanup() {
+  if [[ "$added_trust" == true ]]; then
+    brew untrust --tap "$tap_name"
+  fi
   if [[ -L "$tap_path" && $(readlink "$tap_path") == "$target_path" ]]; then
     unlink "$tap_path"
   fi
@@ -40,6 +44,14 @@ trap cleanup EXIT
 
 mkdir -p "$(dirname "$tap_path")"
 ln -s "$target_path" "$tap_path"
+
+# Homebrew refuses to load formulae from untrusted taps. Trust this one for the
+# check, and remove the trust afterwards only if the check added it.
+trust_before=$(brew trust --json v1)
+brew trust --tap "$tap_name"
+if [[ $(brew trust --json v1) != "$trust_before" ]]; then
+  added_trust=true
+fi
 
 brew style "$tap_name"
 brew audit --strict --online --tap="$tap_name"

@@ -1,48 +1,40 @@
 # Homebrew tap
 
-Install a formula:
+Trust the tap once, then install any formula:
 
 ```sh
-brew trust --formula brettinternet/tap/hum
-brew install brettinternet/tap/hum
-
-brew trust --formula brettinternet/tap/worklease
-brew install brettinternet/tap/worklease
-
-brew trust --formula brettinternet/tap/tell
-brew install brettinternet/tap/tell
-
-brew trust --formula brettinternet/tap/noon
-brew install brettinternet/tap/noon
+brew trust brettinternet/tap
+brew install brettinternet/tap/bl
 ```
 
-Available formulae:
+| Formula | Project |
+| --- | --- |
+| `bl` | [backlog](https://github.com/brettinternet/backlog): keyboard-first terminal backlog for people and coding agents |
+| `hum` | [Hum](https://github.com/brettinternet/hum): local development process supervisor |
+| `noon` | [Noon](https://github.com/brettinternet/noon): repository job scheduler |
+| `tell` | [Tell](https://github.com/brettinternet/tell): one-shot notifications and agent messages |
+| `worklease` | [Worklease](https://github.com/brettinternet/worklease): task and resource lease coordination for local workers |
 
-- [Noon](https://github.com/brettinternet/noon) — repository job scheduler
-- [Tell](https://github.com/brettinternet/tell) — one-shot notifications and agent messages
-- [Hum](https://github.com/brettinternet/hum) — local development process supervisor
-- [Worklease](https://github.com/brettinternet/worklease) — task and resource lease coordination for local workers
+Every formula installs a prebuilt binary for macOS and Linux on arm64 and x64. Installing or
+upgrading `noon` doesn't start a scheduler or install a service; run `noon service install` when
+ready.
 
-## Noon
+Update installed formulae with `brew update && brew upgrade`.
 
-Install with `brew install brettinternet/tap/noon` and upgrade with `brew upgrade brettinternet/tap/noon`.
-The release targets macOS and Linux on Intel/AMD 64-bit and ARM64. Installation and upgrades do
-not start a scheduler or install a service; run `noon service install` explicitly when ready.
+## Releases
 
-To add or update the formula, follow the release procedure in
-[Noon's development guide](https://github.com/brettinternet/noon/blob/main/docs/development.md):
-download the published archives and checksums, verify them, then run Noon's
-`scripts/generate-homebrew-formula.sh VERSION checksums.txt` to generate `Formula/noon.rb`.
-Never substitute checksums from a different local build. In a disposable Homebrew environment,
-run `.github/scripts/check-homebrew-tap.sh brettinternet/tap noon` (style, strict online audit,
-install, and test), then Noon's `task release:smoke` against the installed binary. Commit and
-push the tap update only with authorization.
+The [Update formulae](.github/workflows/update-formulae.yml) workflow runs every six hours and
+on demand. It points each formula at its project's latest stable release, using that release's
+`checksums.txt`, then runs `brew style`, a strict online audit, and install and test for each
+changed formula before committing.
 
-## Upgrades
-
-Update installed formulae:
+To add a formula, write `Formula/NAME.rb` in the same shape as the others, add its release
+asset naming to [`update-formulae.rb`](.github/scripts/update-formulae.rb), and run:
 
 ```sh
-brew update
-brew upgrade
+ruby .github/scripts/update-formulae.rb NAME
+.github/scripts/check-homebrew-tap.sh brettinternet/tap NAME
 ```
+
+The check links this checkout as the tap, trusts it for the run, and installs the formula, so
+run it where installing into Homebrew is acceptable.
