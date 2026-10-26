@@ -5,23 +5,23 @@ class Bl < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/brettinternet/backlog/releases/download/v0.6.0/bl_darwin_arm64.tar.gz"
-      sha256 "d8e7e81bf9237d434a9439a59afedfff010baa4208662c32037357e35b400e2d"
+      url "https://github.com/brettinternet/backlog/releases/download/v0.6.1/bl_darwin_arm64.tar.gz"
+      sha256 "e87142a40e669dfe739f39a75d17eb14a73283073455ddbf6fb297ac484de259"
     end
     on_intel do
-      url "https://github.com/brettinternet/backlog/releases/download/v0.6.0/bl_darwin_amd64.tar.gz"
-      sha256 "524240631221cba83c9896006992403ab6e177a8afd1411b6700b4e54b2a6a24"
+      url "https://github.com/brettinternet/backlog/releases/download/v0.6.1/bl_darwin_amd64.tar.gz"
+      sha256 "4404d14949a4730eb58321669e6558095b913b9a5dfb41fcf889ae0d70eb585d"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/brettinternet/backlog/releases/download/v0.6.0/bl_linux_arm64.tar.gz"
-      sha256 "d369c1bc395d0b9300f20a003bcd9cd747bd6f1233569296ecbfe1a1185b94af"
+      url "https://github.com/brettinternet/backlog/releases/download/v0.6.1/bl_linux_arm64.tar.gz"
+      sha256 "c6c1159db9f8021de771efcace340444ea9dd374dc187dbb17065263be1c16e1"
     end
     on_intel do
-      url "https://github.com/brettinternet/backlog/releases/download/v0.6.0/bl_linux_amd64.tar.gz"
-      sha256 "0ca0b75a8dace32d44e6554ab51146b1456199fea93ad7ce974fb152c0b5eaa2"
+      url "https://github.com/brettinternet/backlog/releases/download/v0.6.1/bl_linux_amd64.tar.gz"
+      sha256 "fa41294ab88796e35b2e5c9bf036b37f3086600e0bfeedd286b8f19e6dbe3649"
     end
   end
 
