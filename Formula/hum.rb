@@ -5,23 +5,23 @@ class Hum < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/brettinternet/hum/releases/download/v0.18.3/hum-0.18.3-macos-arm64.tar.gz"
-      sha256 "75e6c0a866ebe3e9e89dae0f9cecec4a1ba6da051865acc5bb601b47d61c1d21"
+      url "https://github.com/brettinternet/hum/releases/download/v0.19.0/hum-0.19.0-macos-arm64.tar.gz"
+      sha256 "582ba519811818e67bf88f3542bf09565d6a6ffdc62d5ad103125056b3c24009"
     end
     on_intel do
-      url "https://github.com/brettinternet/hum/releases/download/v0.18.3/hum-0.18.3-macos-x64.tar.gz"
-      sha256 "1ec2014338339289fbf547e3dcedeb41441c1081e24c33f4818357cccc0361a0"
+      url "https://github.com/brettinternet/hum/releases/download/v0.19.0/hum-0.19.0-macos-x64.tar.gz"
+      sha256 "eaea34c21ef84f48fb88077dd0e956f55bb04fead4448c5bc48a8a4218275460"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/brettinternet/hum/releases/download/v0.18.3/hum-0.18.3-linux-arm64.tar.gz"
-      sha256 "d9665f533d42b5650f184e3e0a7c8033acd2abbff8e3edaa79b6f09fdc48626c"
+      url "https://github.com/brettinternet/hum/releases/download/v0.19.0/hum-0.19.0-linux-arm64.tar.gz"
+      sha256 "17acb5935bf163e11eb74f8026112a287e9856dfd76d15288340ca0c5d06b1d3"
     end
     on_intel do
-      url "https://github.com/brettinternet/hum/releases/download/v0.18.3/hum-0.18.3-linux-x64.tar.gz"
-      sha256 "ebc8d6ac815bea0e775078d162f74343e2f49e75805649d80ff39b43fe9ea77e"
+      url "https://github.com/brettinternet/hum/releases/download/v0.19.0/hum-0.19.0-linux-x64.tar.gz"
+      sha256 "288a9b2bdc2ee566ef6cc5b20d61f7e06b06ef8aee6c8c86ba3c0c6f1f1a54f9"
     end
   end
 
