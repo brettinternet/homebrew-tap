@@ -52,7 +52,7 @@ end
 def latest_version(repository)
   tag = JSON.parse(gh("release", "view", "--repo", "#{OWNER}/#{repository}", "--json", "tagName"))["tagName"]
   version = tag.delete_prefix("v")
-  abort "#{repository}: latest release #{tag} is not vMAJOR.MINOR.PATCH" unless version.match?(/\A\d+\.\d+\.\d+\z/)
+  abort "#{repository}: latest release #{tag} is not vMAJOR.MINOR.PATCH" unless tag.match?(/\Av\d+\.\d+\.\d+\z/)
 
   version
 end
