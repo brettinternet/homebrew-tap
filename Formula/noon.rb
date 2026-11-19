@@ -5,23 +5,23 @@ class Noon < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/brettinternet/noon/releases/download/v0.17.0/noon-v0.17.0-macos-arm64.tar.gz"
-      sha256 "3b8acf7bc11ae53f34c4263f29cbbe742dfb3312ce8955ad70a78c289c88ddd5"
+      url "https://github.com/brettinternet/noon/releases/download/v0.18.0/noon-v0.18.0-macos-arm64.tar.gz"
+      sha256 "e5f3a91508f09f016b299f634e2c8b3a4ba52ce84bbc9b72a7dd8b9acdaca166"
     end
     on_intel do
-      url "https://github.com/brettinternet/noon/releases/download/v0.17.0/noon-v0.17.0-macos-x64.tar.gz"
-      sha256 "f46f36c625dbc7f9310a4fb4e1989efab7443e096e0f187f6a989b032c1f859c"
+      url "https://github.com/brettinternet/noon/releases/download/v0.18.0/noon-v0.18.0-macos-x64.tar.gz"
+      sha256 "94dccdfadc8a43ea3ca742ac3add87be0625432cfaef546c9abe8835fc2ef8ae"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/brettinternet/noon/releases/download/v0.17.0/noon-v0.17.0-linux-arm64.tar.gz"
-      sha256 "71f4fae5df9f34006e0f3d69e6177e07fd7269ecd3a3da61b9b94f388a538bdd"
+      url "https://github.com/brettinternet/noon/releases/download/v0.18.0/noon-v0.18.0-linux-arm64.tar.gz"
+      sha256 "426ec749916f37d14875f51500d3c7c821b1f48f3964e9b11d06a21d7cbe9eda"
     end
     on_intel do
-      url "https://github.com/brettinternet/noon/releases/download/v0.17.0/noon-v0.17.0-linux-x64.tar.gz"
-      sha256 "8dedf64cb33c1737af660d3b3de1d9307689228349e4d3ad46a1ef3fc92d9bc0"
+      url "https://github.com/brettinternet/noon/releases/download/v0.18.0/noon-v0.18.0-linux-x64.tar.gz"
+      sha256 "0b10fc458ae1f43693375c8001823dab0543f4e9ebf4639e8c2b78f1cfe934b0"
     end
   end
 
